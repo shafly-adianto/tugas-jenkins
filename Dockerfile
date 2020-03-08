@@ -1,10 +1,14 @@
-FROM jenkins:1.596
- 
+FROM jenkins/jenkins:lts
+
 USER root
-RUN apt-get update \
-      && apt-get install -y sudo \
-      && rm -rf /var/lib/apt/lists/*
-RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
- 
+
+RUN apt-get update && \
+apt-get -y install docker-ce
+
+RUN apt-get install -y docker-ce
+
+RUN usermod -a -G docker jenkins
+
 USER jenkins
+
 RUN echo "Tugas Jenkins"
