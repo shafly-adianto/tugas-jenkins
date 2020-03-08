@@ -7,4 +7,3 @@ RUN apt-get update \
 RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
  
 USER jenkins
-RUN echo "Tugas Jenkins Pegadaian"
